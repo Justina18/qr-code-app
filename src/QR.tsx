@@ -13,7 +13,7 @@ interface QRCodeGeneratorProps {
 const clamp = (n: number, min: number, max: number) => Math.min(max, Math.max(min, n));
 
 const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
-  defaultText = "https://gravatar.com/ballwictb",
+  defaultText = "https://cirrahq.com",
 }) => {
   const [text, setText] = useState(defaultText);
   const [size, setSize] = useState(200);
@@ -164,7 +164,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
                 <button
                   type="button"
                   onClick={copyText}
-                  className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 shadow-sm transition hover:bg-slate-50"
+                  className="inline-flex cursor-pointer items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 shadow-sm transition hover:bg-slate-50"
                   title="Copy"
                 >
                   {copied ? <Check className="h-5 w-5" /> : <Copy className="h-5 w-5" />}
@@ -215,7 +215,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
                   <button
                     type="button"
                     onClick={() => setShowBgColor((s) => !s)}
-                    className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-slate-700 shadow-sm transition hover:bg-slate-50"
+                    className="inline-flex items-center cursor-pointer justify-center rounded-xl border border-slate-200 bg-white px-4 text-slate-700 shadow-sm transition hover:bg-slate-50"
                     title={showBgColor ? "Hide background" : "Show background"}
                   >
                     {showBgColor ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
@@ -231,7 +231,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
               <select
                 value={level}
                 onChange={(e) => setLevel(e.target.value as ECLevel)}
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20"
+                className="w-full cursor-pointer rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20"
               >
                 <option value="L">Low (7%)</option>
                 <option value="M">Medium (15%)</option>
@@ -258,7 +258,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
                 <button
                   type="button"
                   onClick={onPickImage}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 shadow-sm transition hover:bg-slate-50"
+                  className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 shadow-sm transition hover:bg-slate-50"
                 >
                   <ImageIcon className="h-5 w-5" />
                   {centerImageUrl ? "Change Image" : "Upload Image"}
@@ -272,7 +272,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
                       setCenterImageUrl(null);
                       if (fileInputRef.current) fileInputRef.current.value = "";
                     }}
-                    className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 shadow-sm transition hover:bg-slate-50"
+                    className="rounded-xl border cursor-pointer border-slate-200 bg-white px-4 py-3 text-slate-700 shadow-sm transition hover:bg-slate-50"
                     title="Remove image"
                   >
                     Remove
@@ -315,7 +315,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
                 <button
                   type="button"
                   onClick={downloadPng}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 font-semibold text-white shadow-sm transition hover:bg-emerald-700"
+                  className="flex w-full items-center cursor-pointer justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 font-semibold text-white shadow-sm transition hover:bg-emerald-700"
                 >
                   <Download className="h-5 w-5" />
                   Download PNG
@@ -324,7 +324,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
                 <button
                   type="button"
                   onClick={shareWhatsApp}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-green-500 px-4 py-3 font-semibold text-white shadow-sm transition hover:bg-green-600"
+                  className="flex w-full items-center cursor-pointer justify-center gap-2 rounded-xl bg-green-500 px-4 py-3 font-semibold text-white shadow-sm transition hover:bg-green-600"
                 >
                   <MessageCircle className="h-5 w-5" />
                   Share on WhatsApp
@@ -333,7 +333,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
                 <button
                   type="button"
                   onClick={shareDiscord}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-3 font-semibold text-white shadow-sm transition hover:bg-indigo-700"
+                  className="flex w-full items-center cursor-pointer justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-3 font-semibold text-white shadow-sm transition hover:bg-indigo-700"
                 >
                   {discordCopied ? <Check className="h-5 w-5" /> : <Copy className="h-5 w-5" />}
                   {discordCopied ? "Copied for Discord" : "Copy for Discord"}
@@ -345,7 +345,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
               <button
                 type="button"
                 onClick={reset}
-                className="rounded-xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
+                className="rounded-xl border cursor-pointer border-slate-200 bg-white px-4 py-3 font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
               >
                 Reset
               </button>
@@ -354,7 +354,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({
         </div>
 
         <footer className="mt-10 border-t border-slate-200 pt-6 text-center">
-          <p className="text-sm font-semibold text-slate-600">&copy; {new Date().getFullYear()} Justina Igbani.</p>
+          <a href="https://github.com/Justina18" className="text-sm font-semibold text-slate-600">&copy; {new Date().getFullYear()} Justina Igbani.</a>
         </footer>
       </div>
     </div>
